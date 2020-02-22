@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.os.Bundle
+import android.view.animation.AccelerateInterpolator
 import com.hamedrahimvand.flipcard.R
 import com.hamedrahimvand.flipcard.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_flip_card.*
