@@ -7,6 +7,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ *@author Hamed.Rahimvand
+ *@since 2020-02-22
+ */
 class MainActivity : AppCompatActivity() {
 
     //CounterClockWise
@@ -94,11 +98,11 @@ class MainActivity : AppCompatActivity() {
     private fun flipClockWise(){
         if (!canFlip) return
         if (!isBackVisible) {
-            animatorSetLeftOut.setTarget(cardBack)
-            animatorSetRightIn.setTarget(cardFront)
-        } else {
             animatorSetLeftOut.setTarget(cardFront)
             animatorSetRightIn.setTarget(cardBack)
+        } else {
+            animatorSetLeftOut.setTarget(cardBack)
+            animatorSetRightIn.setTarget(cardFront)
         }
         animatorSetLeftOut.start()
         animatorSetRightIn.start()
