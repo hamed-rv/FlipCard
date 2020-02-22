@@ -2,13 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingLeft="37dp"
+    android:paddingTop="30dp"
+    android:paddingRight="37dp"
+    android:paddingBottom="30dp">
 
     <FrameLayout
         android:id="@+id/cardFront"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
         android:background="@drawable/rectangle"
         android:backgroundTint="@color/cardFront"
         android:gravity="top"
@@ -56,10 +61,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:alpha="0"
-        android:gravity="center"
         android:background="@drawable/rectangle"
         android:backgroundTint="@color/cardBack"
-        android:layout_margin="16dp"
+        android:gravity="center"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +78,7 @@
             android:text="Content"
             android:textColor="@color/white"
             android:textSize="24sp" />
+
         <Button
             android:id="@+id/ibFlipBack"
             android:layout_width="match_parent"

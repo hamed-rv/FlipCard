@@ -25,7 +25,6 @@ class FlipCardFragment : BaseFragment() {
     private lateinit var animatorSetLeftOut: AnimatorSet
     private lateinit var animatorSetRightIn: AnimatorSet
 
-    private var isBackVisible = false
     private var canFlip = true
 
     private var flipModel: FlipModel? = null
@@ -58,6 +57,13 @@ class FlipCardFragment : BaseFragment() {
         }
         ibFlipFront.setOnClickListener {
             ibFlipBack.performClick()
+        }
+        if(flipModel?.isFlipped == true){
+            cardBack.alpha = 1f
+            cardFront.alpha = 0f
+        }else{
+            cardBack.alpha = 0f
+            cardFront.alpha = 1f
         }
     }
 
@@ -122,7 +128,7 @@ class FlipCardFragment : BaseFragment() {
     }
 
     private fun flipCard() {
-        if (!isBackVisible) {
+        if (flipModel?.isFlipped == false) {
             flipClockWise()
         } else {
             flipCounterClockWise()
@@ -131,7 +137,7 @@ class FlipCardFragment : BaseFragment() {
 
     private fun flipClockWise() {
         if (!canFlip) return
-        if (!isBackVisible) {
+        if (flipModel?.isFlipped==false) {
             animatorSetLeftOut.setTarget(cardFront)
             animatorSetRightIn.setTarget(cardBack)
         } else {
@@ -140,12 +146,12 @@ class FlipCardFragment : BaseFragment() {
         }
         animatorSetLeftOut.start()
         animatorSetRightIn.start()
-        isBackVisible = !isBackVisible
+        flipModel?.isFlipped = !(flipModel?.isFlipped ?: false)
     }
 
     private fun flipCounterClockWise() {
         if (!canFlip) return
-        if (!isBackVisible) {
+        if (flipModel?.isFlipped==false) {
             animatorSetRightOut.setTarget(cardFront)
             animatorSetLeftIn.setTarget(cardBack)
         } else {
@@ -154,6 +160,6 @@ class FlipCardFragment : BaseFragment() {
         }
         animatorSetRightOut.start()
         animatorSetLeftIn.start()
-        isBackVisible = !isBackVisible
+        flipModel?.isFlipped = !(flipModel?.isFlipped ?: false)
     }
 }
