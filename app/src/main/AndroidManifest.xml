@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".simple_flip_card.FlipCardActivity">
+        <activity android:name=".landing.LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".viewpager_flip_card.ViewPagerFlipCardActivity"/>
+        <activity android:name=".simple_flip_card.FlipCardActivity"/>
     </application>
 
 </manifest>
